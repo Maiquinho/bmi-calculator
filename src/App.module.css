@@ -1,21 +1,34 @@
+:root {
+    --primary-color: #3A4B5C;
+    --secondary-color: #6A7D8B;
+    --blue-color: #227C9D;
+    --white-color: #FFFFFF;
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    border: 0;
 }
 
 body {
     font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto;
     font-size: 16px;
+    -webkit-font-smoothing: antialiased;
 }
 
 h1 {
     font-size: 2rem;
     margin-bottom: 1rem;
+
+    color: var(--primary-color);
 }
 
 p {
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
+
+    color: var(--secondary-color);
 }
 
 
