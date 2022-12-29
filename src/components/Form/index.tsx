@@ -1,4 +1,5 @@
 import { FormEvent, useState } from 'react';
+import { calculateBmi } from '../../helpers/bmi';
 import styles from './styles.module.css';
 
 export function Form(){

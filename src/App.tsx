@@ -1,7 +1,8 @@
 import styles from './App.module.css';
+import { Card } from './components/Card';
 import { Form } from './components/Form';
 import { Header } from './components/Header';
-import { bmiLevels, calculateBmi } from './helpers/bmi';
+import { bmiLevels } from './helpers/bmi';
 
 export default function App() {
   return (
@@ -16,8 +17,12 @@ export default function App() {
          <Form />
         </div>
 
-        <div className={styles.column}>
-        Col 2
+        <div className={`${styles.column} ${styles.flex}`}>
+          <div className={styles.grid}>
+            {bmiLevels.map((item, key) => (
+              <Card key={key} item={item} />
+            ))}
+          </div>
         </div>
 
       </div>
