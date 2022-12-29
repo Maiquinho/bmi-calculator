@@ -10,7 +10,9 @@ export function Form(){
         e.preventDefault();
 
         if(heightField && weightField){
-            alert('é sobre isse')
+            alert('seu IMC é...')
+        }else{
+            alert('digite os campos corretamente!');
         }
     }
 

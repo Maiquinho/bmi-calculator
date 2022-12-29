@@ -1,6 +1,7 @@
 import styles from './App.module.css';
 import { Form } from './components/Form';
 import { Header } from './components/Header';
+import { bmiLevels, calculateBmi } from './helpers/bmi';
 
 export default function App() {
   return (
