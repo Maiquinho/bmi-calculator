@@ -1,10 +1,28 @@
-import styles from './App.module.css';
+import { FormEvent, useState } from 'react';
 import { Card } from './components/Card';
-import { Form } from './components/Form';
 import { Header } from './components/Header';
-import { bmiLevels } from './helpers/bmi';
+import { bmiLevel, bmiLevels, calculateBmi } from './helpers/bmi';
+
+
+import styles from './App.module.css';
+
 
 export default function App() {
+  const [heightField, setHeightField] = useState<number>(0);
+  const [weightField, setWeightField] = useState<number>(0);
+  const [toShow, setToShow] = useState<bmiLevel | null>(null);
+
+
+  function handleCalculateBmi(event: FormEvent) {
+    if (heightField && weightField) {
+      event.preventDefault();
+      setToShow(calculateBmi(heightField, weightField));
+    } else {
+      alert('Digite os campos corretamente!');
+    }
+  }
+
+
   return (
     <div className={styles.main}>
       <Header />
@@ -13,16 +31,40 @@ export default function App() {
         <div className={styles.column}>
           <h1>Calcule o seu IMC.</h1>
           <p>IMC é a sigla para Índice de Massa Corporal, parâmetro adotado pela Organização Mundial de Saúde para calcular o peso ideal de cada pessoa.</p>
-          
-         <Form />
+
+
+          <form className={styles.form} onSubmit={handleCalculateBmi}>
+            <input
+              type="number"
+              placeholder="Digite a sua altura. Ex: 1.5 (em metros)"
+              value={heightField > 0 ? heightField : ''}
+              onChange={e => setHeightField(parseFloat(e.target.value))}
+            />
+            <input
+              type="number"
+              placeholder="Digite a seu peso. Ex: 75.3 (em Kg)"
+              value={weightField > 0 ? weightField : ''}
+              onChange={e => setWeightField(parseFloat(e.target.value))}
+            />
+
+            <button type="submit">Calcular</button>
+          </form>
         </div>
 
         <div className={`${styles.column} ${styles.flex}`}>
-          <div className={styles.grid}>
-            {bmiLevels.map((item, key) => (
-              <Card key={key} item={item} />
-            ))}
-          </div>
+          {!toShow &&
+            <div className={styles.grid}>
+              {bmiLevels.map((item, key) => (
+                <Card key={key} item={item} />
+              ))}
+            </div>
+          }
+          {toShow &&
+            <div className={styles.cardLg}>
+              <div className={styles.rightArrow}></div>
+              <Card item={toShow} />
+            </div>
+          }
         </div>
 
       </div>

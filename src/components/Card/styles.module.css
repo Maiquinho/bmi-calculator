@@ -30,6 +30,11 @@
     margin-top: .4rem;
 }
 
+.yourBmi {
+    font-size: 17px;
+    margin: 10px 0 50px 0;
+}
+
 .cardInfo {
     font-size: .8rem;
     margin-top: .4rem;

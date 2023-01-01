@@ -18,6 +18,11 @@ export function Card({ item }: CardProps){
             <div className={styles.cardTitle}>
                 {item.title}
             </div>
+
+            {item.yourBmi && 
+                <div className={styles.yourBmi}>Seu IMC é de {item.yourBmi} Kg/m²</div>
+            }
+
             <div className={styles.cardInfo}>
                 IMC está entre <strong>{item.bmi[0]}</strong> e <strong>{item.bmi[1]}</strong>
             </div>
