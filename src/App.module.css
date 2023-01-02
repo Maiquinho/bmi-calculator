@@ -74,6 +74,10 @@ p {
     outline: none;
 }
 
+.form input:disabled {
+    opacity: .5;
+}
+
 .form button {
     width: 100%;
 
@@ -95,6 +99,9 @@ p {
     filter: brightness(.9);
 }
 
+.form button:disabled {
+    opacity: .5;
+}
 
 
 .cardLg {

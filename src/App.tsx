@@ -45,15 +45,17 @@ export default function App() {
               placeholder="Digite a sua altura. Ex: 1.5 (em metros)"
               value={heightField > 0 ? heightField : ''}
               onChange={e => setHeightField(parseFloat(e.target.value))}
+              disabled={toShow ? true : false}
             />
             <input
               type="number"
               placeholder="Digite a seu peso. Ex: 75.3 (em Kg)"
               value={weightField > 0 ? weightField : ''}
               onChange={e => setWeightField(parseFloat(e.target.value))}
+              disabled={toShow ? true : false}
             />
 
-            <button type="submit">Calcular</button>
+            <button type="submit" disabled={toShow ? true : false}>Calcular</button>
           </form>
         </div>
 
