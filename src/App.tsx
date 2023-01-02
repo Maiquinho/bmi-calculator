@@ -3,7 +3,7 @@ import { Card } from './components/Card';
 import { Header } from './components/Header';
 import { bmiLevel, bmiLevels, calculateBmi } from './helpers/bmi';
 
-
+import leftArrowImg from './assets/leftarrow.png';
 import styles from './App.module.css';
 
 
@@ -20,6 +20,12 @@ export default function App() {
     } else {
       alert('Digite os campos corretamente!');
     }
+  }
+
+  function handleBackButton(){
+    setToShow(null);
+    setHeightField(0);
+    setWeightField(0);
   }
 
 
@@ -61,7 +67,9 @@ export default function App() {
           }
           {toShow &&
             <div className={styles.cardLg}>
-              <div className={styles.rightArrow}></div>
+              <div className={styles.rightArrow} onClick={handleBackButton}>
+                <img src={leftArrowImg} alt="left arrow image" width={25} />
+              </div>
               <Card item={toShow} />
             </div>
           }

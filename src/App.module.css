@@ -100,5 +100,29 @@ p {
 .cardLg {
     flex: 1;
     display: flex;
+}
+
+.rightArrow {
+    position: absolute;
+
+    width: 70px;
+    height: 70px;
+
+    background-color: var(--blue-color);
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    margin-left: -35px;
+    margin-top: 150px;
     
+    transition: all .3s ease-in-out;
+}
+
+.rightArrow:hover {
+    filter: brightness(.9);
 }
