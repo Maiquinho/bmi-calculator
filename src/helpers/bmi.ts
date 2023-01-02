@@ -21,8 +21,10 @@ export function calculateBmi(height: number, weight: number){
 
     for(let i in bmiLevels) {
         if(bmi >= bmiLevels[i].bmi[0] && bmi < bmiLevels[i].bmi[1]){
-            bmiLevels[i].yourBmi = parseFloat(bmi.toFixed(2));
-            return bmiLevels[i];
+            let levelCopy = {...bmiLevels[i]};
+
+            levelCopy.yourBmi = parseFloat(bmi.toFixed(2));
+            return levelCopy;
         }
     }
 
