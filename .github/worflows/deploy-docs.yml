@@ -1,5 +1,4 @@
-name: BMI Deploy Docs
-
+name: Deploy
 
 on:
   push:
@@ -33,7 +32,7 @@ jobs:
           path: ./dist
 
   deploy:
-    name: BMI Deploy Docs
+    name: Deploy
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
